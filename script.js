@@ -14,12 +14,14 @@ const enterDistanceBtn = document.querySelector('.btn_distance');
 
 
 vehicleCardBtn.onclick = function () {
+	let result = '';
 
-	for (let key in vehicleCard) {
-		document.getElementById('displayCard').innerHTML = Object.values(vehicleCard);
-	}
-}
+	Object.keys(vehicleCard).forEach(key => {
+		result += `${key} =  ${vehicleCard[key]} \n`;
 
+	})
+	document.getElementById('displayCard').innerHTML = result
+};
 enterDistanceBtn.addEventListener('click', calculateValue)
 let distance
 const fuelEconomy = vehicleCard.fuelEconomy;
